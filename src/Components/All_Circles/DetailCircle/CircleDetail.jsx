@@ -19,9 +19,7 @@ export default function CircleDetail() {
         body: JSON.stringify({ "circleId": `${lastPath}` }),
       });
       const data = await response.json()
-      // console.log(data)
       setCircle(data.circle)
-      // console.log(circleList)
 
     }
     getCircle()

@@ -17,7 +17,6 @@ export default function CirclesList() {
             });
             const data = await response.json()
             setCircleList(data)
-            // console.log(circleList)
 
         }
         AllCircle()
