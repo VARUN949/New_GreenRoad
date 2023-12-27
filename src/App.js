@@ -5,6 +5,7 @@ import Navbar from "./Components/Navbar/Navbar";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import NewCircle from "./Components/New_Circle/NewCircle";
 import AllSignalList from "./Components/Signal_Status/AllSignalList";
+import SignalDetails from "./Components/Live_Signal_Data/SignalDetails";
 
 
 function App() {
@@ -17,6 +18,8 @@ function App() {
           <Route path="/" element={<><Navbar /><CirclesList /></>}></Route>
           <Route path="/AddCircle" element={<><Navbar /><NewCircle /></>}></Route>
           <Route path="/SignalStatus" element={<><Navbar /><AllSignalList /></>}></Route>
+          <Route path="/AddTime" element={<><Navbar /><SignalDetails /></>}></Route>
+
         </Routes >
       </BrowserRouter >
     </div>
