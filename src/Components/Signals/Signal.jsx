@@ -4,6 +4,47 @@ export default function Signal({ signalId }) {
 
     const [signal, setSignal] = useState({})
 
+    const [status, setStatus] = useState()
+    const startSignal = async () => {
+        try {
+            const response = await fetch(`https://greenroad-gr.onrender.com/app/p1/on-signal/${signal.signalId}`, {
+                method: 'GET',
+            });
+
+            if (response.ok) {
+                alert('Signal started');
+                setStatus("working")
+            }
+            else {
+                alert('Error submitting form data');
+            }
+        }
+
+        catch (error) {
+            alert('Error submitting form data');
+        }
+    }
+
+    const stopSignal = async (SignalID) => {
+        try {
+            const response = await fetch(`https://greenroad-gr.onrender.com/app/p1/off-signal/${signal.signalId}`, {
+                method: 'GET',
+            });
+
+            if (response.ok) {
+                alert('Signal stopped');
+                setStatus("not working")
+            }
+            else {
+                alert('Error submitting form data');
+            }
+        }
+
+        catch (error) {
+            alert('Error submitting form data');
+        }
+    }
+
     useEffect(() => {
         const loadSignal = async () => {
             const response = await fetch('https://greenroad-gr.onrender.com/app/p1/get-signal/byId', {
@@ -15,9 +56,16 @@ export default function Signal({ signalId }) {
             });
             const data = await response.json()
             setSignal(data.signal)
+
         }
         loadSignal()
+        setStatus(signal.signalStatus)
     }, [])
+
+    useEffect(() => {
+        setStatus(signal.signalStatus)
+
+    }, [signal])
     return (
         <>
             {Object.keys(signal).length > 0 &&
@@ -31,7 +79,7 @@ export default function Signal({ signalId }) {
                     </div>
                     <div className='flex m-1'>
                         <p>Signal Status &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :-&nbsp;&nbsp;</p>
-                        <p>{signal.signalStatus}</p>
+                        <p>{status}</p>
                     </div>
 
                     <h2 className='font-bold flex justify-center'>Aspects</h2>
@@ -55,6 +103,10 @@ export default function Signal({ signalId }) {
                     <div className='flex m-1'>
                         <p>Green &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :-&nbsp;&nbsp;</p>
                         <p>{signal.aspects.green}</p>
+                    </div>
+                    <div>
+                        <button onClick={startSignal} className='rounded border bg-slate-500 w-20 m-3 text-white'>Start</button>
+                        <button onClick={stopSignal} className='rounded border bg-slate-500 w-20 m-3 text-white'>Stop</button>
                     </div>
                 </div>}
 

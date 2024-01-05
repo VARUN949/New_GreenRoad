@@ -16,6 +16,7 @@ export default function SignalDetails() {
             },
             body: JSON.stringify({ signalId: updationData.signalId }),
         });
+
         const data = await response.json()
 
         if (response.ok) {
@@ -51,15 +52,18 @@ export default function SignalDetails() {
                 duration: e.target.value
             })
         }
-        if (e.target.name === "color") {
+        if (e.target.name === "red" || e.target.name === "green" || e.target.name === "yellow") {
             setUpdationData({
+                ...updationData,
                 color: e.target.value
             })
         }
-        console.log(updationData);
+        // console.log(updationData);
     }
     return (
+
         <div className='h-[100vh] bg-slate-700 w-100 flex justify-center pt-28'>
+            {console.log(updationData)}
             <div className='bg-slate-300 h-[200px] mt-28 rounded-md'>
                 <div className='flex m-5'>
                     <p>Signal Id &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:-&nbsp;&nbsp;&nbsp;&nbsp;</p>
@@ -73,7 +77,11 @@ export default function SignalDetails() {
 
                 <div className='flex m-5'>
                     <p>Signal Color &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :-&nbsp;&nbsp;&nbsp;&nbsp;</p>
-                    <input type="text" className='rounded' name='color' value={updationData.color} onChange={handleChange} />
+                    <select onChange={handleChange} className=" relative " id="role">
+                        <option value="red">Red</option>
+                        <option value="green">Green</option>
+                        <option value="yellow">Yellow</option>
+                    </select>
                 </div>
 
                 <div className='flex m-5'>
