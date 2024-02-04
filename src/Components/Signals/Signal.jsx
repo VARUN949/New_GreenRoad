@@ -45,6 +45,30 @@ export default function Signal({ signalId }) {
         }
     }
 
+    const deleteSignal = async (SignalID) => {
+        try {
+            const response = await fetch(`https://greenroad-gr.onrender.com/app/p1/delete-signal/${signal.signalId}`, {
+                method: 'DELETE',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ "Id": `${signal.signalId}` }),
+
+            });
+
+            if (response.ok) {
+                alert('Signal deleted');
+            }
+            else {
+                alert('Error submitting form data');
+            }
+        }
+
+        catch (error) {
+            alert('Error submitting form data');
+        }
+    }
+
     useEffect(() => {
         const loadSignal = async () => {
             const response = await fetch('https://greenroad-gr.onrender.com/app/p1/get-signal/byId', {
@@ -107,6 +131,8 @@ export default function Signal({ signalId }) {
                     <div>
                         <button onClick={startSignal} className='rounded border bg-slate-500 w-20 m-3 text-white'>Start</button>
                         <button onClick={stopSignal} className='rounded border bg-slate-500 w-20 m-3 text-white'>Stop</button>
+                        <button onClick={deleteSignal} className='rounded border bg-slate-500 w-20 m-3 text-white'>Delete</button>
+
                     </div>
                 </div>}
 
