@@ -47,12 +47,12 @@ export default function Signal({ signalId }) {
 
     const deleteSignal = async (SignalID) => {
         try {
-            const response = await fetch(`https://greenroad-gr.onrender.com/app/p1/delete-signal/${signal.signalId}`, {
+            const response = await fetch(`https://greenroad-gr.onrender.com/app/p1//signal/delete-signal`, {
                 method: 'DELETE',
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ "Id": `${signal.signalId}` }),
+                body: JSON.stringify({ "signalId": `${signal.signalId}` }),
 
             });
 

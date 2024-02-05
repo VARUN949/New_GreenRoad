@@ -127,7 +127,7 @@ export default function SignalDetails() {
                 <div className='bg-slate-300 h-[230px] mt-28 rounded-md'>
 
                     <div className='flex m-5'>
-                        <p> Signal Id&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:-&nbsp;&nbsp;&nbsp;&nbsp;</p>
+                        <p> Signal Id&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:-&nbsp;&nbsp;&nbsp;&nbsp;</p>
                         <input type="text" className="rounded" name='Id' value={maxValues.Id} onChange={handleChange2} />
                     </div>
 
