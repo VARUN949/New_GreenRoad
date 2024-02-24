@@ -29,6 +29,7 @@ export default function NewSignal() {
             longitude: 72.597444,
             angle: 90,
         },
+        side: ""
     });
 
     const handleChange = (e) => {
@@ -45,6 +46,12 @@ export default function NewSignal() {
             setFormSignalData({
                 ...formSignalData,
                 signalId: e.target.value,
+            })
+        }
+        if (e.target.name === "side") {
+            setFormSignalData({
+                ...formSignalData,
+                side: e.target.value,
             })
         }
         if (e.target.name === "latitude" || e.target.name === "longitude") {
@@ -118,6 +125,11 @@ export default function NewSignal() {
                         <label className="mb-5 text-1xl">
                             Signal ID&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:-
                             <input type="text" className="text-black ml-8 rounded-md" name="signalId" value={formSignalData.signalID} onChange={handleChange} />
+                        </label>
+
+                        <label className="mb-5 text-1xl">
+                            Signal Side&nbsp;&nbsp;&nbsp;:-
+                            <input type="text" className="text-black ml-8 rounded-md" name="side" value={formSignalData.side} onChange={handleChange} />
                         </label>
 
                         <label className="mb-5 text-1xl">

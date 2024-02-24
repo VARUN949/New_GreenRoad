@@ -40,6 +40,12 @@ export default function NewSignal({ formData, ID, numberOfSignals, setNumberOfSi
                 circleId: formData.circleId,
             })
         }
+        if (e.target.name === "side") {
+            setFormSignalData({
+                ...formSignalData,
+                side: e.target.value,
+            })
+        }
         if (e.target.name === "latitude" || e.target.name === "longitude") {
             setFormSignalData({
                 ...formSignalData,
@@ -79,6 +85,7 @@ export default function NewSignal({ formData, ID, numberOfSignals, setNumberOfSi
                 },
                 body: JSON.stringify(formSignalData),
             });
+            console.log(formSignalData)
             if (response.ok) {
                 alert('Form data submitted successfully!');
                 element.style.display = "none"
@@ -100,6 +107,11 @@ export default function NewSignal({ formData, ID, numberOfSignals, setNumberOfSi
                 <label className="mb-5 text-1xl">
                     Signal ID&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:-
                     <input type="text" className="text-black ml-8 rounded-md" name="signalId" value={formSignalData.signalID} onChange={handleChange} />
+                </label>
+
+                <label className="mb-5 text-1xl">
+                    side&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:-
+                    <input type="text" className="text-black ml-8 rounded-md" name="side" value={formSignalData.side} onChange={handleChange} />
                 </label>
 
                 <label className="mb-5 text-1xl">

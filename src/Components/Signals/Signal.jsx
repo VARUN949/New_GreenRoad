@@ -102,8 +102,13 @@ export default function Signal({ signalId }) {
                         <p>{signal.signalId}</p>
                     </div>
                     <div className='flex m-1'>
-                        <p>Signal Status &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :-&nbsp;&nbsp;</p>
+                        <p>Signal Status &nbsp;&nbsp;&nbsp;&nbsp; :-&nbsp;&nbsp;</p>
                         <p>{status}</p>
+                    </div>
+
+                    <div className='flex m-1'>
+                        <p>Signal Side &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :-&nbsp;&nbsp;</p>
+                        <p>{signal.side}</p>
                     </div>
 
                     <h2 className='font-bold flex justify-center'>Aspects</h2>
