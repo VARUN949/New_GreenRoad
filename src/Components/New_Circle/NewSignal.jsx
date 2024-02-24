@@ -110,7 +110,7 @@ export default function NewSignal({ formData, ID, numberOfSignals, setNumberOfSi
                 </label>
 
                 <label className="mb-5 text-1xl">
-                    side&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:-
+                    side&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:-
                     <input type="text" className="text-black ml-8 rounded-md" name="side" value={formSignalData.side} onChange={handleChange} />
                 </label>
 
