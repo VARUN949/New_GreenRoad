@@ -32,6 +32,9 @@ export default function CirclesList() {
                         )
                     })
                 }
+                {
+                    Object.keys(circleList.circles).length > 3 && activeCircles()
+                }
             </div>
         </div>
     )
