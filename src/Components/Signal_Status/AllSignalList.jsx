@@ -3,7 +3,7 @@ import SignalStatus from './SignalStatus';
 
 export default function AllSignalList() {
 
-    const [signalList, setsignalList] = useState({ newsignals: {} });
+    const [signalList, setsignalList] = useState({ signals: {} });
 
     const moreSignals = () => {
         document.getElementById("signalStatusList").style.height = "auto"
@@ -16,6 +16,7 @@ export default function AllSignalList() {
             });
             const data = await response.json()
             setsignalList(data)
+            // console.log(data)
 
         }
         AllSignals()
@@ -25,8 +26,8 @@ export default function AllSignalList() {
     return (
         <div className="bg-slate-700 h-[94vh] flex justify-center" id="signalStatusList">
             <div className='w-1/3 h-58  h-auto flex-col mt-20'>
-                {Object.keys(signalList.newsignals).length > 0 &&
-                    signalList.newsignals.map((signal, index) => {
+                {Object.keys(signalList.signals).length > 0 &&
+                    signalList.signals.map((signal, index) => {
                         return (
                             // <Circle circle={signal} key={index} />
                             <SignalStatus signal={signal} key={index} />
@@ -34,7 +35,7 @@ export default function AllSignalList() {
                     })
                 }
                 {
-                    Object.keys(signalList.newsignals).length > 3 && moreSignals()
+                    Object.keys(signalList.signals).length > 3 && moreSignals()
                 }
             </div>
         </div>
